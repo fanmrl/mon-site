@@ -1,0 +1,376 @@
+
+/*************FONTS**********************/
+
+@import url("https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap");
+
+
+
+:root {
+  /* Start with axis defaults. Exclude weight, which is better controlled via the usual font-weight CSS property */
+  --MONO: 0;   /* Monospace    */
+  --CASL: 0;   /* Casual       */
+  --slnt: 0;   /* Upright      */
+  --CRSV: 0.5; /* Auto Cursive */
+}
+
+*,
+*:before,
+*:after {
+  font-variation-settings: 
+    "MONO" var(--MONO), "CASL" var(--CASL),
+    "slnt" var(--slnt), "CRSV" var(--CRSV);
+}
+
+
+h1 {
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 24px;
+	color: black;
+
+		--CASL: 0;   /* Casual       */
+	  --slnt: 0;  /* About 5deg   */
+	  --MONO: 5;   /* Monospace      */
+	  word-break: break-all;
+	  line-height: 1;
+	/*   animation: weightShift 5s infinite alternate; */
+	  font-weight: 700;
+	  transition: 0.75s;
+	  margin: 0;
+	  text-align: left;
+}
+
+
+h2 {
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 24px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+}
+
+
+
+h3 {
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 18px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+}
+
+h4 {
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 14px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+}
+
+
+p {
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 14px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+}
+
+
+/*************GENERAL**********************/
+
+/*section {
+border: solid 1px blue;
+}
+
+div {
+
+	border: solid 1px red;
+}
+
+article {
+
+	border: solid 1px orange;
+}*/
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	
+	}
+
+
+main, header, footer, body {
+	background: #cbcbcb;
+	}
+
+* {
+	box-sizing:border-box;
+	}
+
+
+main {
+	margin:2vw;  /* Reset les marges par défaut */
+	margin-top: 0;
+	padding-top: 5vw;
+	}
+
+
+img {
+	width:100%;
+}
+
+.intro {
+	margin-bottom: 1vw;
+}
+
+
+
+.language-switch {
+ 	text-align: right;
+   position: relative;
+   margin: 0;
+   adding: 0;
+   display: flex; /* Permet un alignement propre des éléments */
+   justify-content: flex-end; /* Aligne les éléments à droite proprement */
+	list-style-type: none;
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 20px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+}
+
+
+
+.tag-filter {
+
+ 	font-family: "Recursive", monospace;
+	font-weight: 350;
+	font-size: 20px;
+	line-height: 1.3;
+	color: black;
+
+	--CASL: 0;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 5;   /* Monospace      */
+
+  margin-bottom: 2vw;
+  margin-top: 3vw;
+
+
+}
+
+
+/****************HEADER******************/
+
+header {
+	position:fixed;
+	padding: 1vw;
+	width: 100%;
+	text-align: left;
+	border-bottom: 1px solid black;
+	z-index: 1000; /* Assure que le header reste au-dessus */
+	}	
+
+
+/*************GRID**********************/	
+
+.header-title {
+	display:grid; /* Aligne les sous-blocs sous forme de grille */
+  grid-template-columns: 1fr 1fr; /* Largeur des colonnes */
+  grid-gap:0; /* Gouttières / marges internes */
+	margin:0;
+	padding:0;
+	}
+
+
+section.projects {
+	display:grid; /* Aligne les sous-blocs sous forme de grille */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap:2vw; /* Gouttières / marges internes */
+	margin:0;
+	padding:0;
+	}
+
+
+/****************FIGURES******************/
+
+figure {
+	justify-content:space-between;
+	margin:0;
+	padding:0;
+	width:100%;
+	}
+
+/****************LINKS******************/
+
+
+header a {
+	text-decoration: none;
+	}
+
+a {
+	color: black;
+	text-decoration: underline;
+}
+
+
+a:hover {
+	text-decoration: none;
+	/*   animation: weightShift 5s infinite alternate; */
+	 transition: 0.75s;
+	 margin: 0;
+	 border-color: black; /* Couleur de la bordure au survol */
+    color: #000; /* Couleur du texte au survol */
+  
+  --CASL: 3;   /* Casual       */
+  --slnt: 0;  /* About 5deg   */
+  --MONO: 3;   /* Monospace      */
+  font-weight: 800;
+}
+
+
+/****************FOOTER******************/
+
+footer ul {
+	padding: 0;
+}
+
+
+footer {
+	border-top: 1px solid black;
+	margin-top: 1vw;
+	padding: 0.5vw;
+	padding-left: 2vw;
+	text-align: left;
+
+}
+
+footer h1 {
+	padding-top: 1vw;
+
+}
+
+/****************PAGES-ANNEXES******************/
+.annexe-texte p{
+	font-size: 16px;
+	margin-bottom: 3vw;
+	width: 63%;
+}
+
+.annexe-titre {
+	width: 63%;
+	
+}
+
+.annexe-images {
+	width: 63%;
+
+}
+
+.annexe-images figure {
+margin-bottom: 2vw;
+}
+
+.shadow {
+	box-shadow: 1px 1px 12px #555;
+	margin-left: 12px;
+}	
+
+/****************RESPONSIVE******************/
+
+
+@media screen and (max-width:828px) {
+/* Entre 0px et 375px */
+    /* Mobiles portrait */
+    /* iPhone 6+ portrait = 540px */
+    /* iPhone 6 portrait = 375px */
+    /* iPhone 4 & iPhone 5 portrait = 320px */
+
+
+header {
+	position: static;
+	width: 100%;
+
+	}
+
+.header-title {
+	display:grid; /* Aligne les sous-blocs sous forme de grille */
+  grid-template-columns: 1fr; /* Largeur des colonnes */
+  grid-gap:0; /* Gouttières / marges internes */
+	margin:0;
+	padding:0;
+	}
+
+
+h1 {
+	font-size: 18px;
+ }	
+
+.language-switch {
+	font-size: 18px;
+	text-align: left;
+	display: block; /* Permet un alignement propre des éléments */
+   justify-content: left; /* Aligne les éléments à droite proprement */
+   margin-top: 2vw;
+ }	
+
+
+h2 {
+	font-size: 18px;
+ }	
+
+p {
+	font-size: 18px;
+ }
+
+
+.annexe-texte {
+	width: 90%;
+}
+
+.annexe-titre {
+	width: 90%;
+}
+
+.annexe-images {
+	width: 90%;
+
+}
+
+.grid article {
+    display:block; /* Aligne les sous-blocs sous forme de grille */
+    grid-column-start:1fr; 
+		grid-column-end:2; /* Va de 1 à 4 en largeur */
+    }
+
+.grid section.projets-images {
+	margin-bottom: 2vw;
+	}
+
+
+
+
