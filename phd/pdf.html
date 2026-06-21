@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Des secrétaires et des documents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1><a href="phd.html"> Des secrétaires et des documents</a></h1>
+  <nav>
+    <a href="a-propos.html">à propos</a>
+    <a href="pdf.html">.pdf</a>
+  </nav>
+</header>
+
+
+
+  
+
+<main>
+
+<dir> <p class="chapter-text"> Les résultats de la thèse de doctorat sont disponibles sous plusieurs formats : </p></dir>
+
+
+<section id="pages-annexes" class="grid" class="chapter">
+          
+
+<div>
+  <a href="MAUREL-Manuscrit-thèse-numérique[148Mo].pdf">
+    <figure>
+      <img src="img/couverture-Manuscrit-thèse-print-2026.jpg" alt="">
+      <figcaption>
+        Le <a href="MAUREL-Manuscrit-thèse-numérique[148Mo].pdf">manuscrit de thèse</a> (660 pages)
+      </figcaption>
+    </figure>
+  </a>
+</div>
+
+<div>
+  <a href="Des secrétaires et des documents – Rapport [168Mo].pdf">
+    <figure>
+      <img src="img/rapport-IMG.jpg" alt="">
+      <figcaption>
+        Un <a href="">rapport de synthèse</a> (76 pages)
+      </figcaption>
+    </figure>
+  </a>
+</div>
+
+<div>
+  <a href="Des secrétaires et des documents – Livret [82Mo].pdf">
+    <figure>
+      <img src="img/livret-IMG.jpg" alt="">
+      <figcaption>
+        Un <a href="">livret</a> (26 pages)
+      </figcaption>
+    </figure>
+  </a>
+</div>
+
+<div>
+  <a href="Des secrétaires et des documents – Posters [27Mo].pdf">
+    <figure>
+      <img src="img/Posters-IMG.jpg" alt="">
+      <figcaption>
+        Une série de <a href="">posters</a> (9 pages)
+      </figcaption>
+    </figure>
+  </a>
+</div>
+
+
+  </section>
+
+  
+</main>
+
+
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const chapters = document.getElementById('chapters');
+
+  menuToggle.addEventListener('click', e => {
+    e.preventDefault();
+    chapters.classList.toggle('visible');
+    menuToggle.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    let index = 0;
+    const track = carousel.querySelector('.carousel-track');
+    const slides = track.children.length;
+
+    carousel.addEventListener('click', () => {
+      index = (index + 1) % slides;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    });
+  });
+</script>
+
+<div id="torch"></div>
+
+<script>
+  const torch = document.getElementById('torch');
+
+  document.addEventListener('mousemove', (e) => {
+    torch.style.left = e.clientX + 'px';
+    torch.style.top = e.clientY + 'px';
+  });
+</script>
+
+
+  <!-- SURLIGNAGE-->
+
+<script>
+// ===== Surlignage progressif mots-clés =====
+const keywords = document.querySelectorAll(".keyword");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const el = entry.target;
+    if (!el.dataset.highlighted) el.dataset.highlighted = "false";
+
+    if (entry.isIntersecting) {
+      const ratio = entry.intersectionRatio; // proportion visible
+      // On augmente le progress cumulatif
+      el.dataset.progress = Math.max(el.dataset.progress || 0, ratio * 100);
+      el.style.setProperty('--progress', el.dataset.progress + '%');
+      el.dataset.highlighted = "true";
+    }
+  });
+}, {
+  threshold: Array.from({length: 101}, (_, i) => i/100) // 0.00 → 1.0 pour animation fluide
+});
+
+keywords.forEach(k => observer.observe(k));
+
+// ===== Mini éditeur interactif =====
+const editor = document.getElementById("editor");
+
+editor.addEventListener("mouseup", () => {
+  const selection = window.getSelection();
+  if (selection.rangeCount === 0) return;
+
+  const range = selection.getRangeAt(0);
+  if (!editor.contains(range.commonAncestorContainer)) return;
+  if (range.collapsed) return; // rien sélectionné
+
+  const span = document.createElement("span");
+  span.className = "highlight-manual";
+
+  try {
+    range.surroundContents(span);
+  } catch (e) {
+    const docFrag = range.extractContents();
+    span.appendChild(docFrag);
+    range.insertNode(span);
+  }
+
+  selection.removeAllRanges();
+});
+</script>
+
+ 
+</body>
+</html>

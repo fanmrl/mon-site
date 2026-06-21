@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Des secrétaires et des documents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1><a href="phd.html"> Des secrétaires et des documents</a></h1>
+  <nav>
+    <a href="a-propos.html">à propos</a>
+    <a href="pdf.html">.pdf</a>
+  </nav>
+</header>
+
+
+
+  
+
+<main>
+
+
+    <!-- introduction -->
+  <section id="pages-annexes" class="chapter">
+    <p class="chapter-text">
+      <pan class="keyword">Référence</pan> <br>Fanny Maurel, « Des secrétaires et des documents. Les opérations visuelles de traduction de l'information médico-administrative à la lisière de l'hôpital ». Thèse de doctorat en design sous la direction de Vivien Philizot, soutenue le 23 mars 2026, à l’Université de Strasbourg.</p>
+      
+      <p class="chapter-text"><pan class="keyword">Composition du jury</pan><br>
+      <strong>Vivien Philizot</strong>, Professeur des universités, Université de Strasbourg (directeur),
+      <strong>Emmanuel Didier</strong>, Directeur de recherche, CNRS (rapporteur), <strong>Myriam Lewkovicz</strong>, Professeur des universités, Université de Technologie de Troyes (rapporteure), <strong>Jérôme Denis</strong>, Professeur, Mines Paris – PSL (examinateur), <strong>Nolwenn Maudet</strong>, Maitresse de conférence, Université de Strasbourg (examinatrice).</p>
+
+      <p class="chapter-text"><pan class="keyword">Bio</pan><br> Designer et chercheuse en <i>Sciences and Technology Studies</i>, Fanny Maurel utilise le design graphique pour concevoir des projets de recherche et des outils de médiation auprès de différents publics. Ses recherches académiques portent sur la matérialité du travail administratif à l’hôpital, et plus largement sur le travail des femmes et la santé numérique.</p>
+
+       <p class="chapter-text"><pan class="keyword">Financement</pan><br>Ce travail de thèse a bénéficié d’un financement de l’Agence nationale pour l’amélioration des conditions de travail (Anact) sous forme d’une Convention industrielle de formation par la recherche (Cifre), entre 2022 et 2025. Le financeur n’est pas intervenu dans le processus de recherche. Les propos tenus n’engagent que son autrice.</p>
+
+      
+      <p class="chapter-text">Textes, illustrations, photographies, conception graphique : Fanny Maurel.
+      Polices de caractère : <a href="https://www.redaction.us/"> The Redaction</a>, <a href="https://gitlab.com/bonjour-monde/fonderie/syne-typeface/-/tree/master"> Syne Mono</a>, Syne Tactile.</p>
+
+
+       </p>
+
+  </section>
+
+  
+</main>
+
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const chapters = document.getElementById('chapters');
+
+  menuToggle.addEventListener('click', e => {
+    e.preventDefault();
+    chapters.classList.toggle('visible');
+    menuToggle.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    let index = 0;
+    const track = carousel.querySelector('.carousel-track');
+    const slides = track.children.length;
+
+    carousel.addEventListener('click', () => {
+      index = (index + 1) % slides;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    });
+  });
+</script>
+
+<div id="torch"></div>
+
+<script>
+  const torch = document.getElementById('torch');
+
+  document.addEventListener('mousemove', (e) => {
+    torch.style.left = e.clientX + 'px';
+    torch.style.top = e.clientY + 'px';
+  });
+</script>
+
+
+  <!-- SURLIGNAGE-->
+
+<script>
+// ===== Surlignage progressif mots-clés =====
+const keywords = document.querySelectorAll(".keyword");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const el = entry.target;
+    if (!el.dataset.highlighted) el.dataset.highlighted = "false";
+
+    if (entry.isIntersecting) {
+      const ratio = entry.intersectionRatio; // proportion visible
+      // On augmente le progress cumulatif
+      el.dataset.progress = Math.max(el.dataset.progress || 0, ratio * 100);
+      el.style.setProperty('--progress', el.dataset.progress + '%');
+      el.dataset.highlighted = "true";
+    }
+  });
+}, {
+  threshold: Array.from({length: 101}, (_, i) => i/100) // 0.00 → 1.0 pour animation fluide
+});
+
+keywords.forEach(k => observer.observe(k));
+
+// ===== Mini éditeur interactif =====
+const editor = document.getElementById("editor");
+
+editor.addEventListener("mouseup", () => {
+  const selection = window.getSelection();
+  if (selection.rangeCount === 0) return;
+
+  const range = selection.getRangeAt(0);
+  if (!editor.contains(range.commonAncestorContainer)) return;
+  if (range.collapsed) return; // rien sélectionné
+
+  const span = document.createElement("span");
+  span.className = "highlight-manual";
+
+  try {
+    range.surroundContents(span);
+  } catch (e) {
+    const docFrag = range.extractContents();
+    span.appendChild(docFrag);
+    range.insertNode(span);
+  }
+
+  selection.removeAllRanges();
+});
+</script>
+
+  <!-- scroll horizontal menu-->
+
+<script>
+  const menu = document.querySelector('.chapters-scroll');
+
+  menu.addEventListener('wheel', (e) => {
+    if (e.deltaY === 0) return;
+
+    e.preventDefault();
+    menu.scrollLeft += e.deltaY;
+  }, { passive: false });
+</script>
+
+</body>
+</html>
