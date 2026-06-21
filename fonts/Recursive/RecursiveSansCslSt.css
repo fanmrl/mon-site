@@ -1,0 +1,136 @@
+    /* WEBFONTS */
+
+    /************************************************************************************
+    
+    Recursive
+
+    *************************************************************************************/
+
+    /* 
+    100    Extra Light or Ultra Light
+    200    Light or Thin
+    300    Book or Demi
+    400    Normal or Regular
+    450    Text
+    500    Medium
+    600    Semibold, Demibold
+    700    Bold
+    800    Black, Extra Bold or Heavy
+    900    Extra Black, Fat, Poster or Ultra Black
+    */
+
+
+
+/*linear*/
+
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Black.woff2') format('woff2');
+        font-weight:800; 
+        font-style:normal;
+        }        
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-BlackItalic.woff2') format('woff2');
+        font-weight:800; 
+        font-style:italic;
+        }        
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Bold.woff2') format('woff2');
+        font-weight:700; 
+        font-style:normal;
+        }        
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-BoldItalic.woff2') format('woff2');
+        font-weight:700; 
+        font-style:italic;
+        } 
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-ExBdItalic.woff2') format('woff2');
+        font-weight:800; 
+        font-style:italic;
+        }      
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-ExtraBold.woff2') format('woff2');
+        font-weight:800; 
+        font-style:normal;
+        }  
+
+    @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Regular.woff2') format('woff2');
+        font-weight:400; 
+        font-style:normal;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Italic.woff2') format('woff2');
+        font-weight:400; 
+        font-style:italic;
+        }      
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Light.woff2') format('woff2');
+        font-weight:200; 
+        font-style:normal;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-LightItalic.woff2') format('woff2');
+        font-weight:200; 
+        font-style:italic;
+        }   
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-Med.woff2') format('woff2');
+        font-weight:500; 
+        font-style:normal;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-MedItalic.woff2') format('woff2');
+        font-weight:500; 
+        font-style:italic;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-SemiBold.woff2') format('woff2');
+        font-weight:600; 
+        font-style:normal;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-SmBdItalic.woff2') format('woff2');
+        font-weight:600; 
+        font-style:italic;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-XBlk.woff2') format('woff2');
+        font-weight:900; 
+        font-style:normal;
+        }  
+
+  @font-face {
+        font-family:'RecursiveSansCslSt';
+        src:url('RecursiveSansCslSt-XBlkItalic.woff2') format('woff2');
+        font-weight:900; 
+        font-style:italic;
+        } 
+
+          
+  
